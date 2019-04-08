@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.4.0
+    volumes:
+      - domain_data:/usr/share/elasticsearch/data
+    ports:
+      - "18075:9200"
+      - "28075:9300"
+    environment:
+      - "ES_JAVA_OPTS=-Xmx256m -Xms256m"
+      - "cluster.name=domain-cluster"
+      - "network.host=0.0.0.0"
+      - "discovery.zen.minimum_master_nodes=1"
+      - "discovery.type=single-node"
+    networks:
+      - elk
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana-oss:6.4.0
+    ports:
+      - "38075:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - elk
+    environment:
+      SERVER_NAME: "kibana"
+      server.host: "0"
+      elasticsearch.url: "http://elasticsearch:9200"
+
+networks:
+  elk:
+    driver: bridge
+
+volumes:
+  domain_data:
