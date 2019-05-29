@@ -19,6 +19,16 @@ start up docker services
 docker-compose up -d
 ```
 
+create indicies first via
+```
+python3 src/initialize.py -c
+```
+
+A fast way to add new domain to monitor for is using the cmdline. However, it's propably easier to write a small script which uses the already existing generate methods.
+```
+python3 src/domain_monitor.py -d example.com
+```
+
 domain_monitor.sh and certificate_monitor.sh can be used as cronjob calls. For that please enter path to domain-monitor dir first.
 
 ### Domain Monitor
