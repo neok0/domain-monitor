@@ -1,4 +1,4 @@
-from enrichers import whois
+# from enrichers import whois
 from enrichers import pdns
 from settings.config import DOMAIN_CONFIG, TIMEFORMAT
 import datetime
@@ -40,6 +40,6 @@ class Enrichment:
         p.run(self.data)
         self._prepare_data(p)
 
-        w = whois.WHOIS(limit=self.limit)
-        w.run(self.data)
-        self._prepare_data(w)
+        # w = whois.WHOIS(limit=self.limit)
+        # w.run(self.data)
+        # self._prepare_data(w)

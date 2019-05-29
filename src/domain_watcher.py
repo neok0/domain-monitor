@@ -245,10 +245,10 @@ if __name__ == '__main__':
     logger.info("--- Start Processing ---")
 
     if opts.domain:
-        d.generate(opts.domain)
+        d.generate({'value': opts.domain})
 
     if opts.generate:
-        d.generate(opts.generate, store=False)
+        d.generate({'value': opts.generate}, store=False)
 
     if opts.collect:
         d.collect(download=False)
