@@ -20,7 +20,7 @@ CERTIFICATE_WATCH_CONFIG = {
 COLLECTOR_CONFIG = {
     'whoisds': {
         'name': 'whoisds',
-        'url': 'https://whoisds.com//whois-database/newly-registered-domains/{}/nrd',
+        'url': 'https://www.whoisds.com//whois-database/newly-registered-domains/{}/nrd',
         'input':  os.path.join(BASE, 'tmp/whoisds'),
     }
 }
